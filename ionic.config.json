@@ -1,0 +1,7 @@
+{
+  "name": "proto-111",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
