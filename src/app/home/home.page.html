@@ -1,9 +1,57 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" >
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<p>home</p>
+<ion-content class="ion-padding">
+  <div class="scrollmenuCal">
+    <a href = "calender"><ion-icon name="calendar"></ion-icon></a>
+  </div>
+  <div class = "scrollmenu">
+    <!-- <div > -->
+    <a *ngIf="dev" (click)="createPost();"><ion-icon name="create"></ion-icon></a>
+    <!-- </div> -->
+
+    <a href ="pizza"><ion-icon name="pizza"></ion-icon></a>
+
+    <a href = "school" ><ion-icon name="school"></ion-icon> </a>
+    <a href = "cash"><ion-icon name="cash"></ion-icon> </a>
+    <!--<a href = "#home">Home </a>
+    <a href = "#news">News </a>
+    <a href = "#contact">Contact</a>
+    <a href = "#about">About</a>
+    <a href = "#support" >Support </a>
+    <a href = "#update">Update</a>
+    <a href = "#bobcatpantry">BobCatPantry</a>
+    <a href = "#friends" > Friends</a> -->
+    <a href = "card"><ion-icon name="card"></ion-icon></a>
+    <a (click)="navigate('store');"><ion-icon name="cart"></ion-icon></a>
+    <a (click)="navigate('map');"><ion-icon name="map-outline"></ion-icon></a>
+
+    <a href = "heart"><ion-icon name="heart"></ion-icon></a>
+  </div>
+
+<!--  ONLY FOR ADMINISTRATION-->
+<!--  edit post-->
+
+
+
+  <ion-card *ngFor="let post of posts">
+    <ion-card-header>
+      <ion-card-title>{{post.ps_name}}</ion-card-title>
+      <ion-card-subtitle>{{post.e_name}}</ion-card-subtitle>
+      <ion-card-subtitle>Program: {{post.pr_name}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{post.ps_description}}
+      <img src="{{post.ps_pictureLocation}}" alt="">
+      Post Tags: {{post.ps_tags}}
+      Event Tags: {{post.e_tags}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -7,24 +8,30 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'store',
-    loadChildren: () => import('./store/store.module').then( m => m.StorePageModule)
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule),
+    canActivate: [AuthGuard]
   },
   {
-    path: 'map',
-    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+    path: 'items',
+    loadChildren: () => import('./items/items.module').then( m => m.ItemsPageModule),
+    canActivate: [AuthGuard]
   },
   {
-    path: 'forum',
-    loadChildren: () => import('./forum/forum.module').then( m => m.ForumPageModule)
+    path: 'register-modal',
+    loadChildren: () => import('./register-modal/register-modal.module').then( m => m.RegisterModalPageModule)
   },
   {
-    path: 'notifications',
-    loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
+    path: 'program',
+    loadChildren: () => import('./program/program.module').then( m => m.ProgramPageModule)
+  },
+  {
+    path: 'logout',
+    loadChildren: () => import('./logout/logout.module').then( m => m.LogoutPageModule)
   }
 ];
 @NgModule({

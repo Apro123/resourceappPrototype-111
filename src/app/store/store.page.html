@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>store</ion-title>
+    <ion-title>Store</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-<p>store</p>
+  <ion-card *ngFor="let p of items; let i = index">
+    <ion-card-header>
+      <ion-card-subtitle>{{p.ib_dateOrdered}} </ion-card-subtitle>
+      <ion-card-title>{{p.i_name}} </ion-card-title>
+
+      <img class="store-image" src={{p.i_picture}} alt="" />
+
+      <ion-card-subtitle>Worth {{p.i_pointsWorth}} Paw Points</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Description: {{p.i_description}}
+      Added by program: {{p.program}}
+      Quantity left: {{p.i_quantity}}
+    </ion-card-content>
+
+    <div *ngIf="(admin || program.indexOf(p.i_programID) > -1)">
+      <ion-toolbar class="ion-text-center">
+
+        <ion-chip (click)="changeQuantity(i, 1)" outline color="dark">
+          <ion-icon  name="Add"></ion-icon>
+        </ion-chip>
+        {{p.i_quantity}} LEFT
+        <ion-chip (click)="changeQuantity(i, -1)" outline color="dark">
+          <ion-icon name="remove"></ion-icon>
+        </ion-chip>
+      </ion-toolbar>
+    </div>
+
+    <div *ngIf="!(admin || program.indexOf(p.i_programID) > -1)">
+      <ion-toolbar class="ion-text-center remaining">
+        {{p.i_quantity}} LEFT
+      </ion-toolbar>
+    </div>
+
+  </ion-card>
 </ion-content>

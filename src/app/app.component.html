@@ -1,3 +1,23 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first">
+    <ion-header color="light">
+      <!-- <ion-label class="ion-padding ion-margin">{{this.name}}</ion-label> -->
+      <img src="{{this.img}}" alt="">
+      <h3 class="ion-padding">{{this.name}}</h3>
+      <h3 class="ion-padding">{{this.email}}</h3>
+
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle autoHide="false" *ngFor="let p of pages">
+          <app-menu-item [link]="p"></app-menu-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+
+  <ion-router-outlet main>
+  </ion-router-outlet>
+
 </ion-app>

@@ -1,0 +1,42 @@
+.scrollmenuCal{
+  margin-left: 0% !important;
+  float: left;
+}
+
+.scrollmenu{
+  margin-left: 20%;
+}
+
+.scrollmenu, .scrollmenuCal{
+  background-color: var(--ion-color-primary);
+  overflow:auto;
+  white-space: nowrap;
+}
+
+.scrollmenu a, .scrollmenuCal a{
+  display:inline-table;
+  color: var(--ion-color-light);
+  text-align:center;
+  padding:14px;
+  text-decoration:none;
+}
+
+ion-icon{
+  font-size:35px;
+}
+
+.button2 {
+  background-color: var(--ion-color-primary);
+  font-size: 20px;
+  color: var(--ion-color-light);
+  border-radius: 12px;
+  padding:14px 40px;
+}
+
+.text-area {
+  color: var(--ion-color-dark);
+}
+
+.icons {
+  color: var(--ion-color-primary);
+}
